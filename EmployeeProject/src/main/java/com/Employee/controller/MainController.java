@@ -36,7 +36,7 @@ public class MainController {
 		
 		this.employeeService = employeeService;
 		this.positionService = positionService;
-		TestCronTrigger trigger = new TestCronTrigger("0 0/1 * 1/1 * ? *", (Class<? extends Job>) SelectEmployeeLowSalary.class);
+		TestCronTrigger trigger = new TestCronTrigger("0 0 12 1 1/1 ? *", (Class<? extends Job>) SelectEmployeeLowSalary.class);
 		trigger.triggerJob();
 	}
 
