@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>사원번호</th>
+				<th>사원명</th>
+				<th>부서명</th>
+				<th>직급</th>
+				<th>급여</th>
+				<th>작업</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+			 
+			 	<tr th:each="e : ${employeeList}">
+			 		
+			 		<td>[[${e.eno }]]</td>
+			 		<td>[[${e.name }]]</td>
+			 		<td>[[${e.department }]]</td>
+			 		<td>[[${e.positionNo]]</td>
+			 		<td>
+			 		<th:block th:each="p : ${positionList }">
+			 		
+						<th:block th:if="${e.positionNo == p.positionNo}">
+							[[${p.positionName }]]						
+						</th:block>	 		
+			 		</th:block>
+			 		</td>
+			 		<td>
+			 			<a th:href="@{/employee/update/{eno}(eno=${e.eno })}">수정</a>
+			 			/
+			 			<a th:href="@{/employee/delete/{eno}(eno=${e.eno })}">삭제</a>
+			 			
+			 		</td>
+			 	</tr>
+					 
+
+		</tbody>
+	</table>
+</body>
+</html>
